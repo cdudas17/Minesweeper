@@ -6,8 +6,8 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
 public class Minesweeper {
-
-	private static JMenuBar menuBar;
+											//make board = new MinesweeperPanel(length) 
+	private static JMenuBar menuBar;		// Put DEFAULT SIZE in this class
 	private static JMenu menu;
 	private static JMenuItem menuExit;
 	private static JMenu menuDifficulty;
@@ -56,7 +56,7 @@ public class Minesweeper {
 		menuDifficulty.addActionListener(new MenuActionListener());
 		menu.add(menuDifficulty);
 		
-		menuBeginner = new JMenuItem("menuBeginner");
+		menuBeginner = new JMenuItem("Beginner");
 		menuBeginner.addActionListener(new MenuActionListener());
 		menuDifficulty.add(menuBeginner);
 		

@@ -19,7 +19,7 @@ public class MineSweeperPanel extends JPanel implements ActionListener {
 
 	private int DEFAULT_SIZE = 8;
 
-	public MineSweeperPanel() {
+	public MineSweeperPanel() {				//Make consturctor go by size
 		length = DEFAULT_SIZE;
 		game = new MineSweeperGame(length);
 		board = new JButton[length][length];
