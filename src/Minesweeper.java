@@ -31,7 +31,9 @@ public class Minesweeper {
 			private final int BEGINNER= 8;
 			private final int BEGINNER_MINE = 10;
 			private final int INTERMEDIATE = 16;
+			private final int INTERMEDIATE_MINE = 40;
 			private final int EXPERT = 24;
+			private final int EXPERT_MINE = 99;
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -39,10 +41,10 @@ public class Minesweeper {
 					board.newGame(BEGINNER, BEGINNER_MINE);
 
 				if (e.getSource() == menuIntermediate)
-					// changes board to intermediate
+					board.newGame(INTERMEDIATE, INTERMEDIATE_MINE);
 				
 				if (e.getSource() == menuExpert) 
-					// changes board to expert
+					board.newGame(EXPERT, EXPERT_MINE);
 				
 				if (e.getSource() == menuExit)
 					System.exit(0);
