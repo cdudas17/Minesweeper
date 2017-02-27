@@ -39,7 +39,8 @@ public class MineSweeperPanel extends JPanel implements ActionListener {
 	}
 	
 	public void newGame(int size, int numMine) {
-		
+		game = new MineSweeperGame(size, numMine);
+		setLength(game.getRow());
 	}
 	
 	public void setLength(int length) {
