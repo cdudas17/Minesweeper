@@ -17,8 +17,7 @@ public class Minesweeper {
 	
 	public static void main(String[] args) {
 		System.out.println("executed");
-		MineSweeperPanel board;
-		board = new MineSweeperPanel();
+		MineSweeperPanel board = new MineSweeperPanel();
 		JFrame frame = new JFrame("Mine Sweeper");
 		frame.add(board);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -29,19 +28,22 @@ public class Minesweeper {
 		class MenuActionListener implements ActionListener {
 			
 			private final int BEGINNER= 8;
+			private final int BEGINNER_MINES = 10;
 			private final int INTERMEDIATE = 16;
+			private final int INTERMEDIATE_MINES = 40;
 			private final int EXPERT = 24;
+			private final int EXPERT_MINES = 99;
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if (e.getSource() == menuBeginner)
-					// changes board to beginner
+					board.newGame(BEGINNER, 10);
 
 				if (e.getSource() == menuIntermediate)
-					// changes board to intermediate
+					board.newGame(INTERMEDIATE, 20);
 				
 				if (e.getSource() == menuExpert) 
-					// changes board to expert
+					board.newGame(EXPERT, 30);
 				
 				if (e.getSource() == menuExit)
 					System.exit(0);
@@ -56,7 +58,7 @@ public class Minesweeper {
 		menuDifficulty.addActionListener(new MenuActionListener());
 		menu.add(menuDifficulty);
 		
-		menuBeginner = new JMenuItem("menuBeginner");
+		menuBeginner = new JMenuItem("Beginner");
 		menuBeginner.addActionListener(new MenuActionListener());
 		menuDifficulty.add(menuBeginner);
 		
@@ -74,7 +76,6 @@ public class Minesweeper {
 		menuExit.addActionListener(new MenuActionListener());
 		menu.add(menuExit);
 		
-		frame.setJMenuBar(menuBar);
 		frame.setJMenuBar(menuBar);
 		frame.setVisible(true);
 	}

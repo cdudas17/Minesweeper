@@ -1,4 +1,4 @@
-import javax.swing.JOptionPane;
+//import javax.swing.JOptionPane;
 
 public class MineSweeperGame {
 
@@ -9,30 +9,43 @@ public class MineSweeperGame {
 	private int row;
 
 	private int col;
-
+	
 	private final int DEFAULT_SIZE = 8;
+	
+	private final int DEFAULT_MINE = 10;
 
-	public MineSweeperGame(int size) {
+	public MineSweeperGame() {
 		gameStatus = GameStatus.NotOverYet;
+		setBoardDimensions(DEFAULT_SIZE);
 		board = new Cell[row][col];
-		createBoardDimensions(size);
 	}
 
-	private void createBoardDimensions(int size) {
+	public MineSweeperGame(int size, int numMines) {
+		gameStatus = GameStatus.NotOverYet;
+		setBoardDimensions(size);
+		board = new Cell[row][col];
+	}
+
+	private void setBoardDimensions(int size) {
 		try {
-			if (size < 2 || size > 24)
+			if (size < 10 || size > 24)
 				throw new NumberFormatException();
 			else {
 				row = size;
 				col = size;
 			}
 		} catch (NumberFormatException e) {
-			JOptionPane.showMessageDialog(null, "Error: Using default board size! ");
+			// JOptionPane.showMessageDialog(null, "Error: Using default board
+			// size!");
 			row = DEFAULT_SIZE;
 			col = DEFAULT_SIZE;
 		}
 	}
 	
+ 	public void loadMines() {
+ 		
+ 	}
+
 	public int getRow() {
 		return row;
 	}
