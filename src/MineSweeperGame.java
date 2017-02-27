@@ -99,7 +99,7 @@ public class MineSweeperGame {
 	}
 	
 	private void zeroCell(int row, int col) {
-		
+		board[row][col].setExposed(true);
 	}
 	
 	public void mineCount() {
