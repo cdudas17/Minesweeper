@@ -38,13 +38,10 @@ public class Minesweeper {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if (e.getSource() == menuBeginner)
-					board.newGame(BEGINNER, BEGINNER_MINE);
 
 				if (e.getSource() == menuIntermediate)
-					board.newGame(INTERMEDIATE, INTERMEDIATE_MINE);
 				
 				if (e.getSource() == menuExpert) 
-					board.newGame(EXPERT, EXPERT_MINE);
 				
 				if (e.getSource() == menuExit)
 					System.exit(0);

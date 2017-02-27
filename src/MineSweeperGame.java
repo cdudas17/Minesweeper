@@ -69,6 +69,14 @@ public class MineSweeperGame {
 			}
 		}
 	}
+	
+	public Cell[][] getBoard() {
+		return board;
+	}
+	
+	public Cell getCell(int row, int col) {
+		return board[row][col];
+	}
 
 	public int getRow() {
 		return row;
