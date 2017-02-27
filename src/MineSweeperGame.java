@@ -71,11 +71,35 @@ public class MineSweeperGame {
 	}
 	
 	public void selectCell(int row, int col) {
-		board[row][col].setExposed(true);
+		board[row][col].setExposed(true); // selects the cell the user clicked on
 		
 		if (board[row][col].isMine()) {
+			showMines(); // shows all of the mines when the user clicks on a mine
 			setGameStatus(GameStatus.Lost);
 		}
+		
+		if (board[row][col].getMineCount() == 0)
+			zeroCell(row, col);
+		
+		if (checkStatus())
+			setGameStatus(GameStatus.Won);
+	}
+	
+	private boolean checkStatus() {
+		return false;
+	}
+	
+	private void showMines() {
+		for (int row = 0; row < this.row; row++) {
+			for (int col = 0; col < this.col; col++) {
+				if (board[row][col].isMine() && !board[row][col].isExposed())
+					board[row][col].setExposed(true);
+			}
+		}
+	}
+	
+	private void zeroCell(int row, int col) {
+		
 	}
 	
 	public void mineCount() {
