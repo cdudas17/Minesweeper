@@ -12,7 +12,13 @@ public class MineSweeperGame {
 
 	private final int DEFAULT_SIZE = 8;
 
-	public MineSweeperGame(int size) {
+	public MineSweeperGame() {
+		gameStatus = GameStatus.NotOverYet;
+		board = new Cell[row][col];
+		createBoardDimensions(getDEFAULT_SIZE());
+	}
+	
+	public MineSweeperGame(int size, int numMines) {
 		gameStatus = GameStatus.NotOverYet;
 		board = new Cell[row][col];
 		createBoardDimensions(size);

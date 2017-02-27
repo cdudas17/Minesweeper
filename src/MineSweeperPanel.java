@@ -17,11 +17,9 @@ public class MineSweeperPanel extends JPanel implements ActionListener {
 
 	private int length;
 
-	private int DEFAULT_SIZE = 8;
-
 	public MineSweeperPanel() {				//Make consturctor go by size
-		length = DEFAULT_SIZE;
-		game = new MineSweeperGame(length);
+		game = new MineSweeperGame();
+		setLength(game.getDEFAULT_SIZE());
 		board = new JButton[length][length];
 		setLayout(new BorderLayout());
 
@@ -38,6 +36,14 @@ public class MineSweeperPanel extends JPanel implements ActionListener {
 				center.add(board[row][col]);
 			}
 		}
+	}
+	
+	public void newGame(int size, int numMine) {
+		
+	}
+	
+	public void setLength(int length) {
+		this.length = length;
 	}
 
 	public void actionPerformed(ActionEvent event) {

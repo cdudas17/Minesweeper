@@ -29,13 +29,14 @@ public class Minesweeper {
 		class MenuActionListener implements ActionListener {
 			
 			private final int BEGINNER= 8;
+			private final int BEGINNER_MINE = 10;
 			private final int INTERMEDIATE = 16;
 			private final int EXPERT = 24;
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if (e.getSource() == menuBeginner)
-					// changes board to beginner
+					board.newGame(BEGINNER, BEGINNER_MINE);
 
 				if (e.getSource() == menuIntermediate)
 					// changes board to intermediate
