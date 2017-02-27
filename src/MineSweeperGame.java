@@ -11,21 +11,21 @@ public class MineSweeperGame {
 	private int col;
 
 	private final int DEFAULT_SIZE = 8;
-	
+
 	private final int DEFAULT_MINES = 10;
 
 	public MineSweeperGame() {
 		gameStatus = GameStatus.NotOverYet;
-		board = new Cell[row][col];
 		createBoardDimensions(getDEFAULT_SIZE());
+		board = new Cell[row][col];
 		initialize();
 		setMines(DEFAULT_MINES);
 	}
-	
+
 	public MineSweeperGame(int size, int numMines) {
 		gameStatus = GameStatus.NotOverYet;
-		board = new Cell[row][col];
 		createBoardDimensions(size);
+		board = new Cell[row][col];
 		initialize();
 		setMines(numMines);
 	}
@@ -39,24 +39,25 @@ public class MineSweeperGame {
 				col = size;
 			}
 		} catch (NumberFormatException e) {
-//			JOptionPane.showMessageDialog(null, "Error: Using default board size! ");
+			// JOptionPane.showMessageDialog(null, "Error: Using default board
+			// size! ");
 			row = DEFAULT_SIZE;
 			col = DEFAULT_SIZE;
 		}
 	}
-	
-	public void   initialize() {
-		for (int row = 0; row < this.row; row++) { 
+
+	public void initialize() {
+		for (int row = 0; row < this.row; row++) {
 			for (int col = 0; col < this.col; col++) {
 				board[row][col] = new Cell(false, false);
 			}
 		}
 	}
-	
+
 	public void setMines(int numMines) {
-		
+
 	}
-	
+
 	public int getRow() {
 		return row;
 	}
