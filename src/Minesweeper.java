@@ -5,21 +5,25 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
-public class Minesweeper {
-											//make board = new MinesweeperPanel(length) 
-	private static JMenuBar menuBar;		// Put DEFAULT SIZE in this class
+public class Minesweeper{
+
+	private static JMenuBar menuBar;
 	private static JMenu menu;
 	private static JMenuItem menuExit;
 	private static JMenu menuDifficulty;
 	private static JMenuItem menuBeginner;
 	private static JMenuItem menuIntermediate;
 	private static JMenuItem menuExpert;
+	private static MineSweeperPanel board;
+	private static JFrame frame;
+	
+	private final static int DEFAULT_SIZE = 8;
+	private final static int DEFAULT_MINE = 10;
 	
 	public static void main(String[] args) {
 		System.out.println("executed");
-		MineSweeperPanel board;
-		board = new MineSweeperPanel();
-		JFrame frame = new JFrame("Mine Sweeper");
+		board = new MineSweeperPanel(DEFAULT_SIZE, DEFAULT_MINE);
+		frame = new JFrame("Mine Sweeper");
 		frame.add(board);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.pack();
@@ -37,12 +41,18 @@ public class Minesweeper {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				frame.remove(board);
 				if (e.getSource() == menuBeginner)
+					board = new MineSweeperPanel(BEGINNER, BEGINNER_MINE);
 
 				if (e.getSource() == menuIntermediate)
+					board = new MineSweeperPanel(INTERMEDIATE, INTERMEDIATE_MINE);
 				
 				if (e.getSource() == menuExpert) 
+					board = new MineSweeperPanel(EXPERT, EXPERT_MINE);
 				
+				frame.add(board);
+				frame.pack();
 				if (e.getSource() == menuExit)
 					System.exit(0);
 			}
@@ -79,3 +89,4 @@ public class Minesweeper {
 		frame.setVisible(true);
 	}
 }
+
