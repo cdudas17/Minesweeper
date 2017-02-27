@@ -71,7 +71,11 @@ public class MineSweeperGame {
 	}
 	
 	public void selectCell(int row, int col) {
+		board[row][col].setExposed(true);
 		
+		if (board[row][col].isMine()) {
+			setGameStatus(GameStatus.Lost);
+		}
 	}
 	
 	public void mineCount() {
