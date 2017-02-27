@@ -34,7 +34,7 @@ public class MineSweeperGame {
 
 	private void createBoardDimensions(int size) {
 		try {
-			if (size < 2 || size > 24)
+			if (size < 3 || size > 24)
 				throw new NumberFormatException();
 			else {
 				setRow(size);
@@ -70,12 +70,20 @@ public class MineSweeperGame {
 		}
 	}
 	
+	public void selectCell(int row, int col) {
+		
+	}
+	
+	public void mineCount() {
+		
+	}
+	
 	public Cell[][] getBoard() {
 		return board;
 	}
 	
 	public Cell getCell(int row, int col) {
-		return board[row][col];
+		return (row < 0 || col < 0 || row >= this.row || col >= this.col) ? null : board[row][col];
 	}
 
 	public int getRow() {
