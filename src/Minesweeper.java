@@ -53,6 +53,7 @@ public class Minesweeper{
 				
 				frame.add(board);
 				frame.pack();
+				frame.setLocationRelativeTo(null);
 				if (e.getSource() == menuExit)
 					System.exit(0);
 			}
