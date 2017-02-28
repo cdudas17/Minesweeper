@@ -1,11 +1,18 @@
 import java.util.Random;
 
+/***********************************************************************
+*
+* This class makes all the decisions on the Minesweeper board.
+*
+* @author Matthew Shampine, Connor Dudas 
+* @version 1.0
+***********************************************************************/
 public class MineSweeperGame {
 
 	/** 2D array of cells that resembles a MineSweeper board */
 	private Cell[][] board;
 
-	/** holds the current status of the game */
+	/** holds the current state of the game */
 	private GameStatus gameStatus;
 
 	/** board row */
@@ -14,23 +21,30 @@ public class MineSweeperGame {
 	/** board column */
 	private int col;
 
-	private int numMines;
+//	private int numMines;
 
-	// TO-DO: maybe do not need this int, and method
+	/** default board size for a beginner (8x8) */
 	private final int DEFAULT_SIZE = 8;
-
-	private final int DEFAULT_MINES = 10;
-
+	
+	/*************************************************************************
+	 * Constructor that initializes a 2D array of cells, filling all of the 
+	 * cells with default values. In addition, mines are placed randomly
+	 * throughout the board and the mine count of neighboring cells are
+	 * established. 
+	 * 
+	 * @param size the desired size of the board to be created
+	 * @param numMines the amount of mines that will in the game 
+	 ************************************************************************/
 	public MineSweeperGame(int size, int numMines) {
 		setGameStatus(GameStatus.NotOverYet);
 		createBoardDimensions(size);
-		setNumMines(numMines);
+//		setNumMines(numMines);
 		board = new Cell[row][col];
 		initialize();
 		setMines(numMines);
 		mineCount();
 	}
-
+	
 	private void createBoardDimensions(int size) {
 		try {
 			if (size < 3 || size > 24)
@@ -71,12 +85,11 @@ public class MineSweeperGame {
 
 	public void selectCell(int row, int col) {
 		board[row][col].setExposed(true); // selects the cell the user clicked on
-
 		if (checkStatus())
 			setGameStatus(GameStatus.Won);
 		else
 			setGameStatus(GameStatus.NotOverYet);
-		
+
 		if (board[row][col].isMine()) {
 			showMines(); // shows all of the mines when the user clicks on a mine
 			setGameStatus(GameStatus.Lost);
@@ -94,15 +107,15 @@ public class MineSweeperGame {
 			}
 		}
 	}
-	
-	// TO-DO: finish when the user clicks on a zero spot
+
 	private void zeroCell(int row, int col) {
-		for (int r = (row-1); r <= (row+1); r++) {
-			for (int c = (col-1); c <= (col+1); c++) {
-				
-				if (board[row + r][col + c].getMineCount() == 0 && !board[row + r][col + c].isExposed()) {
-					board[row + r][col + c].setExposed(true);
-					zeroCell(row + r, col + c);
+		for (int r = (row - 1); r <= (row + 1); r++) {
+			for (int c = (col + 1); c >= (col - 1); c--) {
+
+				if (getCell(r, c) != null && !board[r][c].isExposed() && !board[r][c].isMine()) {
+					board[r][c].setExposed(true);
+					if (board[r][c].getMineCount() == 0)
+						zeroCell(r, c);
 				}
 			}
 		}
@@ -122,8 +135,8 @@ public class MineSweeperGame {
 	private void mineCount() {
 		for (int row = 0; row < this.row; row++) {
 			for (int col = 0; col < this.col; col++) {
-				 if (board[row][col].isMine())
-				 addMine(row, col);
+				if (board[row][col].isMine())
+					addMine(row, col);
 			}
 		}
 	}
@@ -158,13 +171,8 @@ public class MineSweeperGame {
 		this.col = col;
 	}
 
-	// TO-DO: might not need these two methods
 	public int getDEFAULT_SIZE() {
 		return DEFAULT_SIZE;
-	}
-
-	public int getDEFAULT_MINES() {
-		return DEFAULT_MINES;
 	}
 
 	public GameStatus getGameStatus() {
@@ -175,11 +183,11 @@ public class MineSweeperGame {
 		this.gameStatus = gameStatus;
 	}
 
-	public int getNumMines() {
-		return numMines;
-	}
-
-	public void setNumMines(int numMines) {
-		this.numMines = numMines;
-	}
+//	public int getNumMines() {
+//		return numMines;
+//	}
+//
+//	public void setNumMines(int numMines) {
+//		this.numMines = numMines;
+//	}
 }
