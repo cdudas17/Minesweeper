@@ -21,7 +21,7 @@ public class MineSweeperGame {
 	/** board column */
 	private int col;
 
-	private int numMines;
+//	private int numMines;
 
 	/** default board size for a beginner (8x8) */
 	private final int DEFAULT_SIZE = 8;
@@ -85,6 +85,7 @@ public class MineSweeperGame {
 
 	public void selectCell(int row, int col) {
 		board[row][col].setExposed(true); // selects the cell the user clicked on
+		
 		if (checkStatus())
 			setGameStatus(GameStatus.Won);
 		else

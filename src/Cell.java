@@ -20,11 +20,6 @@ public class Cell {
 		isExposed = false;
 	}
 
-    public Cell(boolean exposed, boolean mine) {
-        isExposed = exposed;
-        isMine = mine;
-    }
-	
 	public int getMineCount() {
 		return mineCount;
 	}
