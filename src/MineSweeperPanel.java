@@ -4,13 +4,16 @@ import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
 
-public class MineSweeperPanel extends JPanel implements ActionListener {
+public class MineSweeperPanel extends JPanel implements ActionListener, MouseListener {
 
 	private JButton[][] board;
 	private MineSweeperGame game;
@@ -87,6 +90,7 @@ public class MineSweeperPanel extends JPanel implements ActionListener {
 		this.length = length;
 	}
 	
+	//Action Listener
 	public void actionPerformed(ActionEvent event) {
 		for (int row = 0; row < length; row++) {
 			for (int col = 0; col < length; col++) {
@@ -107,5 +111,39 @@ public class MineSweeperPanel extends JPanel implements ActionListener {
 			JOptionPane.showMessageDialog(null, "You Won");
 			disableButtons();
 		}
+	}
+	
+	
+	//Mouse listener
+	public void mouseClicked(MouseEvent e) {
+		System.out.println("1");
+	}
+
+	public void mouseEntered(MouseEvent e) {
+	}
+
+	public void mouseExited(MouseEvent e) {
+	}
+
+	public void mousePressed(MouseEvent e) {
+	}
+
+	public void mouseReleased(MouseEvent e) {
+		System.out.println("flagging");
+		if(SwingUtilities.isRightMouseButton(e)){
+			System.out.println("right");
+			for (int row = 0; row < length; row++){
+				for (int col = 0; col < length; col++){
+					if(e.getSource() == board[row][col]){
+						iCell = game.getCell(row,col);
+						if(iCell.isFlagged())
+							iCell.setFlagged(false);
+						else
+							iCell.setFlagged(true);
+					}
+				}
+			}
+		}
+		displayBoard();
 	}
 }
