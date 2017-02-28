@@ -14,11 +14,15 @@ public class Minesweeper {
 	private static JMenuItem menuBeginner;
 	private static JMenuItem menuIntermediate;
 	private static JMenuItem menuExpert;
+	private static MineSweeperPanel board;
+	private static JFrame frame;
+	
+	private final static int DEFAULT_SIZE = 8;
+	private final static int DEFAULT_MINE = 10;
 	
 	public static void main(String[] args) {
-		System.out.println("executed");
-		MineSweeperPanel board = new MineSweeperPanel();
-		JFrame frame = new JFrame("Mine Sweeper");
+		board = new MineSweeperPanel(DEFAULT_SIZE, DEFAULT_MINE);
+		frame = new JFrame("Mine Sweeper");
 		frame.add(board);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.pack();
@@ -36,15 +40,19 @@ public class Minesweeper {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				frame.remove(board);
 				if (e.getSource() == menuBeginner)
-					board.newGame(BEGINNER, 10);
+					board = new MineSweeperPanel(BEGINNER, BEGINNER_MINES);
 
 				if (e.getSource() == menuIntermediate)
-					board.newGame(INTERMEDIATE, 20);
+					board = new MineSweeperPanel(INTERMEDIATE, INTERMEDIATE_MINES);
 				
 				if (e.getSource() == menuExpert) 
-					board.newGame(EXPERT, 30);
+					board = new MineSweeperPanel(EXPERT, EXPERT_MINES);
 				
+				frame.add(board);
+				frame.pack();
+				frame.setLocationRelativeTo(null);
 				if (e.getSource() == menuExit)
 					System.exit(0);
 			}
