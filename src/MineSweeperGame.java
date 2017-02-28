@@ -2,6 +2,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
@@ -19,7 +20,9 @@ public class MineSweeperGame {
 
 	/** board column */
 	private int col;
-
+	
+	private int numMines;
+	
 	// TO-DO: maybe do not need this int, and method
 	private final int DEFAULT_SIZE = 8;
 
@@ -28,9 +31,11 @@ public class MineSweeperGame {
 	public MineSweeperGame(int size, int numMines) {
 		setGameStatus(GameStatus.NotOverYet);
 		createBoardDimensions(size);
+		setNumMines(numMines);
 		board = new Cell[row][col];
 		initialize();
 		setMines(numMines);
+		mineCount();
 	}
 
 	private void createBoardDimensions(int size) {
@@ -49,23 +54,23 @@ public class MineSweeperGame {
 		}
 	}
 
-	public void initialize() {
+	private void initialize() {
 		for (int row = 0; row < this.row; row++) {
 			for (int col = 0; col < this.col; col++) {
-				board[row][col] = new Cell(false, false);
+				board[row][col] = new Cell();
 			}
 		}
 	}
 
-	public void setMines(int numMines) {
+	private void setMines(int numMines) {
 		int count = 0;
 		Random randomLoc = new Random();
 		while (count < numMines) {
-			int r = randomLoc.nextInt(row);
-			int c = randomLoc.nextInt(col);
+			int row = randomLoc.nextInt(this.row);
+			int col = randomLoc.nextInt(this.col);
 
-			if (!board[r][c].isMine()) {
-				board[r][c].setMine(true);
+			if (!board[row][col].isMine()) {
+				board[row][col].setMine(true);
 				count++;
 			}
 		}
@@ -87,6 +92,15 @@ public class MineSweeperGame {
 		else
 			setGameStatus(GameStatus.NotOverYet);
 	}
+	
+	private void showMines() {
+		for (int row = 0; row < this.row; row++) {
+			for (int col = 0; col < this.col; col++) {
+				if (board[row][col].isMine() && !board[row][col].isExposed())
+					board[row][col].setExposed(true); // TO-DO: needs to check if a flag is on a non-mine
+			}
+		}
+	}
 
 	private boolean checkStatus() {
 		boolean status = true;
@@ -99,21 +113,12 @@ public class MineSweeperGame {
 		return status;
 	}
 
-	private void showMines() {
-		for (int row = 0; row < this.row; row++) {
-			for (int col = 0; col < this.col; col++) {
-				if (board[row][col].isMine() && !board[row][col].isExposed())
-					board[row][col].setExposed(true);
-			}
-		}
-	}
-	
 	// TO-DO: finish when the user clicks on a zero spot
 	private void zeroCell(int row, int col) {
 
 	}
 
-	public void mineCount() {
+	private void mineCount() {
 		for (int row = 0; row < this.row; row++) {
 			for (int col = 0; col < this.col; col++) {
 				if (board[row][col].isMine())
@@ -123,73 +128,13 @@ public class MineSweeperGame {
 	}
 
 	private void addMine(int row, int col) {
-		if (getCell(row - 1, col) != null)
-			board[row - 1][col].setMineCount(1);
-		if (getCell(row - 1, col + 1) != null)
-			board[row - 1][col + 1].setMineCount(1);
-		if (getCell(row, col + 1) != null)
-			board[row][col + 1].setMineCount(1);
-		if (getCell(row + 1, col + 1) != null)
-			board[row + 1][col + 1].setMineCount(1);
-		if (getCell(row + 1, col) != null)
-			board[row + 1][col].setMineCount(1);
-		if (getCell(row + 1, col - 1) != null)
-			board[row + 1][col - 1].setMineCount(1);
-		if (getCell(row, col - 1) != null)
-			board[row][col - 1].setMineCount(1);
-		if (getCell(row - 1, col - 1) != null)
-			board[row - 1][col - 1].setMineCount(1);
-	}
+		for (int r = -1; r <= 1; r++) {
+			for (int c = -1; c <= 1; c++) {
 
-	public void save(String filename) {
-		PrintWriter writer = null;
-		try {
-			writer = new PrintWriter(filename + ".txt");
-			writer.print(board[row][col].getMineCount() + ",");
-
-			for (int row = 0; row < this.row; row++) {
-				for (int col = 0; col < this.col; col++) {
-
-					if (board[row][col].isMine())
-						writer.print("t,");
-					else
-						writer.print("f,");
-
-					if (board[row][col].isFlagged())
-						writer.print("t,");
-					else
-						writer.print("f,");
-
-					if (board[row][col].isMine())
-						writer.println("t,");
-					else
-						writer.println("f,");
-				}
+				if (getCell(row + r, col + c) != null && (r != 0 && c != 0))
+					board[row + r][col + c].setMineCount(1);
 			}
-		} catch (IOException e) {
-			JOptionPane.showMessageDialog(null, "Error: Unable to save game! ");
-		} finally {
-			writer.close();
 		}
-	}
-
-	public void load(String filename) {
-		Scanner fileReader = null;
-
-		try {
-			fileReader = new Scanner(new File(filename));
-
-			while (fileReader.hasNextLine()) {
-				// String input = fileReader.nextLine();
-			}
-		} catch (FileNotFoundException e) {
-			JOptionPane.showMessageDialog(null, "Error: Unable to load game! ");
-		}
-	}
-
-	// TO-DO: maybe do not need this method
-	public Cell[][] getBoard() {
-		return board;
 	}
 
 	public Cell getCell(int row, int col) {
@@ -227,5 +172,13 @@ public class MineSweeperGame {
 
 	public void setGameStatus(GameStatus gameStatus) {
 		this.gameStatus = gameStatus;
+	}
+	
+	public int getNumMines() {
+		return numMines;
+	}
+
+	public void setNumMines(int numMines) {
+		this.numMines = numMines;
 	}
 }
