@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class MineSweeperPanel extends JPanel implements ActionListener {
@@ -74,6 +75,13 @@ public class MineSweeperPanel extends JPanel implements ActionListener {
 			}
 		}
 	}
+	public void disableButtons(){
+		for (int row = 0; row < length; row++){
+			for (int col = 0; col < length; col++){
+				board[row][col].setEnabled(false);
+			}
+		}
+	}
 	
 	public void setLength(int length) {
 		this.length = length;
@@ -90,5 +98,14 @@ public class MineSweeperPanel extends JPanel implements ActionListener {
 		}
 		
 		displayBoard();
+		
+		if (game.getGameStatus() == GameStatus.Lost) {
+			JOptionPane.showMessageDialog(null, "You Lost");
+			disableButtons();
+		}
+		if (game.getGameStatus() == GameStatus.Won) {
+			JOptionPane.showMessageDialog(null, "You Won");
+			disableButtons();
+		}
 	}
 }
