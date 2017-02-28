@@ -70,31 +70,40 @@ public class MineSweeperGame {
 	}
 
 	public void selectCell(int row, int col) {
-		board[row][col].setExposed(true); // selects the cell the user clicked
-											// on
-
-		if (board[row][col].isMine()) {
-			showMines(); // shows all of the mines when the user clicks on a
-							// mine
-			setGameStatus(GameStatus.Lost);
-		}
-
-		if (board[row][col].getMineCount() == 0)
-			zeroCell(row, col);
+		board[row][col].setExposed(true); // selects the cell the user clicked on
 
 		if (checkStatus())
 			setGameStatus(GameStatus.Won);
 		else
 			setGameStatus(GameStatus.NotOverYet);
+		
+		if (board[row][col].isMine()) {
+			showMines(); // shows all of the mines when the user clicks on a mine
+			setGameStatus(GameStatus.Lost);
+		}
+
+		if (board[row][col].getMineCount() == 0)
+			zeroCell(row, col);
 	}
 
 	private void showMines() {
 		for (int row = 0; row < this.row; row++) {
 			for (int col = 0; col < this.col; col++) {
 				if (board[row][col].isMine() && !board[row][col].isExposed())
-					board[row][col].setExposed(true); // TO-DO: needs to check
-														// if a flag is on a
-														// non-mine
+					board[row][col].setExposed(true); // TO-DO: needs to check if a flag is on a non-mine
+			}
+		}
+	}
+	
+	// TO-DO: finish when the user clicks on a zero spot
+	private void zeroCell(int row, int col) {
+		for (int r = (row-1); r <= (row+1); r++) {
+			for (int c = (col-1); c <= (col+1); c++) {
+				
+				if (board[row + r][col + c].getMineCount() == 0 && !board[row + r][col + c].isExposed()) {
+					board[row + r][col + c].setExposed(true);
+					zeroCell(row + r, col + c);
+				}
 			}
 		}
 	}
@@ -108,11 +117,6 @@ public class MineSweeperGame {
 			}
 		}
 		return status;
-	}
-
-	// TO-DO: finish when the user clicks on a zero spot
-	private void zeroCell(int row, int col) {
-
 	}
 
 	private void mineCount() {
