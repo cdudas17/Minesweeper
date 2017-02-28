@@ -39,13 +39,14 @@ public class MineSweeperPanel extends JPanel implements ActionListener, MouseLis
 		displayBoard();
 	}
 	
-	public void createButtons(){
+	private void createButtons(){
 		for (int row = 0; row < length; row++) { //ADD BUTTONS
 			for (int col = 0; col < length; col++) {
 				board[row][col] = new JButton("");
 				board[row][col].setPreferredSize(new Dimension(45, 45));
 				board[row][col].setBackground(Color.LIGHT_GRAY);
 				board[row][col].addActionListener(this);
+				board[row][col].addMouseListener(this);
 				center.add(board[row][col]);
 			}
 		}
@@ -57,28 +58,31 @@ public class MineSweeperPanel extends JPanel implements ActionListener, MouseLis
 				iCell = game.getCell(row,col);
 				board[row][col].setIcon(null);
 				board[row][col].setText("");
-				if (iCell.isExposed()){
+				
+				if(iCell.isFlagged()){	//Adds icon to flags
+					board[row][col].setIcon(flagIcon);
+					//board[row][col].setEnabled(false); //This dims the imageIcon of the flag
+				}
+				
+				if (iCell.isExposed()){	//checks for exposed cells
 					board[row][col].setEnabled(false);
 					board[row][col].setBackground(Color.WHITE);
-					if(iCell.isMine())
+					if(iCell.isMine())	//sets mine icons
 						board[row][col].setIcon(mineIcon);
-					else if (iCell.getMineCount() == 0)
+					else if (iCell.getMineCount() == 0)	//for 'zeroSpaces'
 						board[row][col].setText("");
-					else
+					else	//for cells bordering a mine
 						board[row][col].setText("" + iCell.getMineCount());
 				}
 				else{
 					board[row][col].setEnabled(true);
 					board[row][col].setBackground(Color.LIGHT_GRAY);
 				}
-				if(iCell.isFlagged()){
-					board[row][col].setIcon(flagIcon);
-					board[row][col].setEnabled(false);
-				}
 			}
 		}
 	}
-	public void disableButtons(){
+	
+	private void disableButtons(){
 		for (int row = 0; row < length; row++){
 			for (int col = 0; col < length; col++){
 				board[row][col].setEnabled(false);
@@ -95,28 +99,28 @@ public class MineSweeperPanel extends JPanel implements ActionListener, MouseLis
 		for (int row = 0; row < length; row++) {
 			for (int col = 0; col < length; col++) {
 				if (event.getSource() == board[row][col]) {
-					iCell = game.getCell(row, col);
-					iCell.setExposed(true);
+					//iCell = game.getCell(row, col);
+					//iCell.setExposed(true);
+					game.selectCell(row,  col);
 				}
 			}
 		}
 		
 		displayBoard();
 		
-		if (game.getGameStatus() == GameStatus.Lost) {
-			JOptionPane.showMessageDialog(null, "You Lost");
+		if (game.getGameStatus() == GameStatus.NotOverYet) {	//gameStatus not working..?
 			disableButtons();
+			JOptionPane.showMessageDialog(null, "You Lost");
 		}
 		if (game.getGameStatus() == GameStatus.Won) {
-			JOptionPane.showMessageDialog(null, "You Won");
 			disableButtons();
+			JOptionPane.showMessageDialog(null, "You Won");
 		}
 	}
 	
 	
 	//Mouse listener
 	public void mouseClicked(MouseEvent e) {
-		System.out.println("1");
 	}
 
 	public void mouseEntered(MouseEvent e) {
@@ -129,9 +133,7 @@ public class MineSweeperPanel extends JPanel implements ActionListener, MouseLis
 	}
 
 	public void mouseReleased(MouseEvent e) {
-		System.out.println("flagging");
 		if(SwingUtilities.isRightMouseButton(e)){
-			System.out.println("right");
 			for (int row = 0; row < length; row++){
 				for (int col = 0; col < length; col++){
 					if(e.getSource() == board[row][col]){
@@ -143,7 +145,7 @@ public class MineSweeperPanel extends JPanel implements ActionListener, MouseLis
 					}
 				}
 			}
+			displayBoard();
 		}
-		displayBoard();
 	}
 }
