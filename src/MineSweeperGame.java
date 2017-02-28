@@ -1,6 +1,5 @@
 import java.util.Random;
 
-
 public class MineSweeperGame {
 
 	/** 2D array of cells that resembles a MineSweeper board */
@@ -14,9 +13,9 @@ public class MineSweeperGame {
 
 	/** board column */
 	private int col;
-	
+
 	private int numMines;
-	
+
 	// TO-DO: maybe do not need this int, and method
 	private final int DEFAULT_SIZE = 8;
 
@@ -71,10 +70,12 @@ public class MineSweeperGame {
 	}
 
 	public void selectCell(int row, int col) {
-		board[row][col].setExposed(true); // selects the cell the user clicked on
+		board[row][col].setExposed(true); // selects the cell the user clicked
+											// on
 
 		if (board[row][col].isMine()) {
-			showMines(); // shows all of the mines when the user clicks on a mine
+			showMines(); // shows all of the mines when the user clicks on a
+							// mine
 			setGameStatus(GameStatus.Lost);
 		}
 
@@ -86,12 +87,14 @@ public class MineSweeperGame {
 		else
 			setGameStatus(GameStatus.NotOverYet);
 	}
-	
+
 	private void showMines() {
 		for (int row = 0; row < this.row; row++) {
 			for (int col = 0; col < this.col; col++) {
 				if (board[row][col].isMine() && !board[row][col].isExposed())
-					board[row][col].setExposed(true); // TO-DO: needs to check if a flag is on a non-mine
+					board[row][col].setExposed(true); // TO-DO: needs to check
+														// if a flag is on a
+														// non-mine
 			}
 		}
 	}
@@ -115,21 +118,39 @@ public class MineSweeperGame {
 	private void mineCount() {
 		for (int row = 0; row < this.row; row++) {
 			for (int col = 0; col < this.col; col++) {
-				if (board[row][col].isMine())
-					addMine(row, col);
+//				 if (board[row][col].isMine())
+//				 addMine(row, col);
+				if (board[row][col].isMine()) {
+					if (getCell(row - 1, col) != null)
+						board[row - 1][col].setMineCount(1);
+					if (getCell(row - 1, col + 1) != null)
+						board[row - 1][col + 1].setMineCount(1);
+					if (getCell(row, col + 1) != null)
+						board[row][col + 1].setMineCount(1);
+					if (getCell(row + 1, col + 1) != null)
+						board[row + 1][col + 1].setMineCount(1);
+					if (getCell(row + 1, col) != null)
+						board[row + 1][col].setMineCount(1);
+					if (getCell(row + 1, col - 1) != null)
+						board[row + 1][col - 1].setMineCount(1);
+					if (getCell(row, col - 1) != null)
+						board[row][col - 1].setMineCount(1);
+					if (getCell(row - 1, col - 1) != null)
+						board[row - 1][col - 1].setMineCount(1);
+				}
 			}
 		}
 	}
 
-	private void addMine(int row, int col) {
-		for (int r = -1; r <= 1; r++) {
-			for (int c = -1; c <= 1; c++) {
-
-				if (getCell(row + r, col + c) != null && (r != 0 && c != 0))
-					board[row + r][col + c].setMineCount(1);
-			}
-		}
-	}
+//	private void addMine(int row, int col) {
+//		for (int r = -1; r < 1; r++) {
+//			for (int c = -1; c < 1; c++) {
+//
+//				if (getCell(row + r, col + c) != null && (r != 0 && c != 0))
+//					board[row + r][col + c].setMineCount(1);
+//			}
+//		}
+//	}
 
 	public Cell getCell(int row, int col) {
 		return (row < 0 || col < 0 || row >= this.row || col >= this.col) ? null : board[row][col];
@@ -167,7 +188,7 @@ public class MineSweeperGame {
 	public void setGameStatus(GameStatus gameStatus) {
 		this.gameStatus = gameStatus;
 	}
-	
+
 	public int getNumMines() {
 		return numMines;
 	}
