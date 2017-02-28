@@ -32,6 +32,7 @@ public class MineSweeperPanel extends JPanel implements ActionListener {
 		add(center, BorderLayout.CENTER);
 
 		createButtons();
+		displayBoard();
 	}
 	
 	public void createButtons(){
@@ -82,9 +83,12 @@ public class MineSweeperPanel extends JPanel implements ActionListener {
 		for (int row = 0; row < length; row++) {
 			for (int col = 0; col < length; col++) {
 				if (event.getSource() == board[row][col]) {
-					// do nothing
+					iCell = game.getCell(row, col);
+					iCell.setExposed(true);
 				}
 			}
 		}
+		
+		displayBoard();
 	}
 }
