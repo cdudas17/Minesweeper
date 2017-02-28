@@ -21,7 +21,7 @@ public class MineSweeperGame {
 	/** board column */
 	private int col;
 
-//	private int numMines;
+	private int numMines;
 
 	/** default board size for a beginner (8x8) */
 	private final int DEFAULT_SIZE = 8;
