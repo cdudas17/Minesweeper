@@ -108,7 +108,7 @@ public class MineSweeperPanel extends JPanel implements ActionListener, MouseLis
 		
 		displayBoard();
 		
-		if (game.getGameStatus() == GameStatus.NotOverYet) {	//gameStatus not working..?
+		if (game.getGameStatus() == GameStatus.Lost) {
 			disableButtons();
 			JOptionPane.showMessageDialog(null, "You Lost");
 		}
