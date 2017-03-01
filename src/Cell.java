@@ -19,7 +19,7 @@ public class Cell {
 		isFlagged  = false;
 		isExposed = false;
 	}
-
+	
 	public int getMineCount() {
 		return mineCount;
 	}

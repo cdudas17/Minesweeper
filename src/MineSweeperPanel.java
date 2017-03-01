@@ -15,11 +15,13 @@ import javax.swing.SwingUtilities;
 
 public class MineSweeperPanel extends JPanel implements ActionListener, MouseListener {
 
+	private static final long serialVersionUID = 2279352759025366829L;
+	
 	private JButton[][] board;
 	private MineSweeperGame game;
 	private Cell iCell;
 	private JPanel center;
-
+	
 	private int length;
 	
 	ImageIcon mineIcon = new ImageIcon("src/mine.png");
@@ -35,6 +37,21 @@ public class MineSweeperPanel extends JPanel implements ActionListener, MouseLis
 		center.setLayout(new GridLayout(length, length));
 		add(center, BorderLayout.CENTER);
 
+		createButtons();
+		displayBoard();
+	}
+	
+	public MineSweeperPanel(int size, String filename) {
+		game = new MineSweeperGame(size);
+		game.load(filename);
+		setLength(size);
+		board = new JButton[size][size];
+		setLayout(new BorderLayout());
+
+		center = new JPanel();
+		center.setLayout(new GridLayout(size, size));
+		add(center, BorderLayout.CENTER);
+		
 		createButtons();
 		displayBoard();
 	}
@@ -118,6 +135,17 @@ public class MineSweeperPanel extends JPanel implements ActionListener, MouseLis
 		}
 	}
 	
+	public boolean isSuccess() {
+		return game.isloadSuccessful();
+	}
+
+	public void save(String filename) {
+		game.save(filename);
+	}
+	
+	public int boardSize(String filename) {
+		return game.getSize(filename);
+	}
 	
 	//Mouse listener
 	public void mouseClicked(MouseEvent e) {
