@@ -89,7 +89,7 @@ public class MineSweeperGame {
 	 *            The desired size of the board to be created
 	 * @throws NumberFormatException
 	 *             Throws an exception when the size provided is smaller 
-	 *             than a (3x3 size board) or exceeds a (24x24 size board).
+	 *             than a (3x3 size board) or exceeds a (24x24 size board)
 	 */
 	private void createBoardDimensions(final int size) {
 		try {
@@ -151,7 +151,9 @@ public class MineSweeperGame {
 	 *            The col of the cell location
 	 */
 	public void selectCell(final int row, final int col) {
-		board[row][col].setExposed(true);
+		if (!board[row][col].isFlagged()) {
+			board[row][col].setExposed(true);
+		}
 
 		if (checkStatus()) {
 			setGameStatus(GameStatus.Won);
@@ -180,8 +182,6 @@ public class MineSweeperGame {
 			for (int col = 0; col < this.col; col++) {
 				if (board[row][col].isMine() && !board
 						[row][col].isExposed()) {
-					// TO-DO: needs to check if a flag is a 
-					// non-mine
 					board[row][col].setExposed(true);
 				}
 			}
@@ -205,7 +205,8 @@ public class MineSweeperGame {
 
 				if (getCell(r, c) != null && !board[r][c].
 						isExposed() && !board[r][c].
-						isMine()) {
+						isMine() && !board[r][c].
+						isFlagged()) {
 					board[r][c].setExposed(true);
 					if (board[r][c].getMineCount() == 0) {
 						zeroCell(r, c);
@@ -283,10 +284,7 @@ public class MineSweeperGame {
 	 * 
 	 * @param filename
 	 *            The name of the file that is saved and written to
-	 * @throws I0Exception
-	 *             Does not save the game if the name of the file is 0 in
-	 *             length
-	 * @throws InputMisMatchException
+	 * @throws InputMismatchException
 	 *             If the user tries to save a lost game
 	 */
 	public void save(final String filename) {
@@ -349,8 +347,6 @@ public class MineSweeperGame {
 	 * 
 	 * @param filename
 	 *            The name of the file that the properties are loaded from
-	 * @throws FileNotFoundException
-	 *             If the file could not be found and loaded
 	 * @throws InputMismatchException
 	 *             If the contents of the file has been altered and it
 	 *             cannot parse correctly
@@ -436,8 +432,6 @@ public class MineSweeperGame {
 	 * 
 	 * @param filename
 	 *            The name of the file that the properties are loaded from
-	 * @throws FileNotFoundException
-	 *             If the file could not be found and loaded
 	 * @throws NumberFormatException
 	 *             If the contents of the file has been altered and it
 	 *             cannot parse correctly

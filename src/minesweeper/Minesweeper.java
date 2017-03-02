@@ -62,7 +62,7 @@ public class Minesweeper {
 	/**
 	 * Main method that runs the Minesweeper game.
 	 * 
-	 * @param args
+	 * @param args Default arguments used for debugging 
 	 */
 	public static void main(final String[] args) {
 		board = new MineSweeperPanel(DEFAULT_SIZE, DEFAULT_MINE);

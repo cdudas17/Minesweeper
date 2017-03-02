@@ -241,15 +241,16 @@ public class MineSweeperPanel extends JPanel implements ActionListener, MouseLis
 	}
 
 	public void mouseReleased(MouseEvent e) {
-		if(SwingUtilities.isRightMouseButton(e)){
-			for (int row = 0; row < length; row++){
-				for (int col = 0; col < length; col++){
-					if(e.getSource() == board[row][col]){
-						iCell = game.getCell(row,col);
-						if(iCell.isFlagged())
+		if (SwingUtilities.isRightMouseButton(e)) {
+			for (int row = 0; row < length; row++) {
+				for (int col = 0; col < length; col++) {
+					if (e.getSource() == board[row][col]) {
+						iCell = game.getCell(row, col);
+						if (iCell.isFlagged()) {
 							iCell.setFlagged(false);
-						else
+						} else {
 							iCell.setFlagged(true);
+						}
 					}
 				}
 			}
