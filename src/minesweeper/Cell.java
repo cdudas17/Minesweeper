@@ -21,6 +21,10 @@ public class Cell {
 		isExposed = false;
 	}
 	
+	/**
+	 * 
+	 * @return
+	 */
 	public int getMineCount() {
 		return mineCount;
 	}
