@@ -18,44 +18,44 @@ import javax.swing.JOptionPane;
  */
 public class Minesweeper {
 
-	/** */
+	/** Creates a menu at the top of the GUI.*/
 	private static JMenuBar menuBar;
 	
-	/** */
+	/** For a tab 'menu' in menuBar.*/
 	private static JMenu menu;
 	
-	/** */
+	/** An item in the menu to exit the game.*/
 	private static JMenuItem menuExit;
 	
-	/** */
+	/** A menu in the menu to select a difficulty.*/
 	private static JMenu menuDifficulty;
 	
-	/** */
+	/** A beginner difficulty select in Difficulty.*/
 	private static JMenuItem menuBeginner;
 	
-	/** */
+	/** An intermediate difficulty select in Difficult.y*/
 	private static JMenuItem menuIntermediate;
 	
-	/** */
+	/** An expert difficulty select in Difficulty.*/
 	private static JMenuItem menuExpert;
 	
-	/** */
+	/** Menu item to save current game.*/
 	private static JMenuItem menuSave;
 	
-	/** */
+	/** Menu item to load a saved game.*/
 	private static JMenuItem menuLoad;
 
-	/** */
+	/** For a MineSweeperPanel that holds the buttons for the game.*/
 	private static MineSweeperPanel board;
 	
-	/** */
+	/** A JFrame to add elements to.*/
 	private static JFrame frame;
 	
 	// CHECKSTYLE:ON
-	/** */
+	/** A Default size of a board.*/
 	private static final int DEFAULT_SIZE = 8;
 	
-	/** */
+	/** A default mine count of a board.*/
 	private static final int DEFAULT_MINE = 10;
 	// CHECKSYLE:OFF
 	
@@ -88,17 +88,20 @@ public class Minesweeper {
 			/** The default size of an intermediate board (16x16). */
 			private final int INTERMEDIATE = 16;
 			
-			/** */
+			/** The default amount of mines on an intermediate board (16x16).*/
 			private final int INTERMEDIATE_MINES = 40;
 			
-			/** */
+			/** The default size of an expert board (24x24).*/
 			private final int EXPERT = 24;
 			
-			/** */
+			/** The default amount of mines on an expert board (24x24).*/
 			private final int EXPERT_MINES = 99;
 			// CHECKSTYLE:ON
 
 			@Override
+			/**
+			 * Performs an action based on a menu selection.
+			 */
 			public void actionPerformed(final ActionEvent e) {
 				if (e.getSource() == menuBeginner) {
 					frame.remove(board);
@@ -166,7 +169,6 @@ public class Minesweeper {
 
 			/**
 			 * This method adds the new board to the frame.
-			 * 
 			 */
 			private void clearBoard() {
 				frame.add(board);

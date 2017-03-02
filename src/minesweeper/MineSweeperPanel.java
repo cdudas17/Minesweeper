@@ -14,20 +14,45 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
+/**
+ * This class lays out all of the buttons for minesweeper and displays them.
+ * It also communicates with MineSweeperGame to retrieve the board and select cells.
+ * 
+ * @author Connor Dudas, Matthew Shampine
+ * @version 1.0
+ *
+ */
 public class MineSweeperPanel extends JPanel implements ActionListener, MouseListener {
 
 	private static final long serialVersionUID = 2279352759025366829L;
 	
+	/** 2D array of buttons to create a MineSweeper board.*/
 	private JButton[][] board;
+	/** Creates a minesweeper game to interact with*/
 	private MineSweeperGame game;
+	/** A Cell in order to grab cells from game.*/
 	private Cell iCell;
+	/** JPanel to place board in.*/
 	private JPanel center;
 	
+	/** Keep track of the length of the board.*/
 	private int length;
 	
+	/** Icon for mines.*/
 	ImageIcon mineIcon = new ImageIcon("src/mine.png");
+	/** Icon for flags.*/
 	ImageIcon flagIcon = new ImageIcon("src/flag.png");
 
+	/**
+	 * Constructor that initializes the game, sets a length,
+	 * and adds a board of buttons that creates a MineSweeper 
+	 * board and displays it.
+	 * 
+	 * @param pLength
+	 * 			The desired length of the side of a board.
+	 * @param mineNum
+	 * 			The desired number of mines on a board.
+	 */
 	public MineSweeperPanel(int pLength, int mineNum) {
 		game = new MineSweeperGame(pLength, mineNum);
 		setLength(pLength);
@@ -42,6 +67,16 @@ public class MineSweeperPanel extends JPanel implements ActionListener, MouseLis
 		displayBoard();
 	}
 	
+	/**
+	 * Constructor that initializes the game, sets a length,
+	 * and adds a board of buttons that creates a MineSweeper 
+	 * board and displays it from a saved file.
+	 * 
+	 * @param size
+	 * 			The desired length of a board.
+	 * @param filename
+	 * 			The file the MineSweeper game is to be loaded from.
+	 */
 	public MineSweeperPanel(int size, String filename) {
 		game = new MineSweeperGame(size);
 		game.load(filename);
@@ -57,6 +92,11 @@ public class MineSweeperPanel extends JPanel implements ActionListener, MouseLis
 		displayBoard();
 	}
 	
+	/**
+	 * This lays out the buttons for MineSweeper in rows and
+	 * columns. It sets the preferred size and color and also
+	 * adds action listeners to each button.
+	 */
 	private void createButtons(){
 		for (int row = 0; row < length; row++) { //ADD BUTTONS
 			for (int col = 0; col < length; col++) {
@@ -70,6 +110,11 @@ public class MineSweeperPanel extends JPanel implements ActionListener, MouseLis
 		}
 	}
 	
+	/**
+	 * This displays the board. It sets mines to mine icons, flags to 
+	 * flag icons, and number to the mineCount of the cell. If the
+	 * cells mineCount is simply zero, it creates an empty button.
+	 */
 	private void displayBoard(){
 		for (int row = 0; row < length; row++){
 			for (int col = 0; col < length; col++){
@@ -100,6 +145,9 @@ public class MineSweeperPanel extends JPanel implements ActionListener, MouseLis
 		}
 	}
 	
+	/**
+	 * Disables all button on the MineSweeper board.
+	 */
 	private void disableButtons(){
 		for (int row = 0; row < length; row++){
 			for (int col = 0; col < length; col++){
@@ -108,11 +156,21 @@ public class MineSweeperPanel extends JPanel implements ActionListener, MouseLis
 		}
 	}
 	
+	/**
+	 * Sets the length.
+	 * 
+	 * @param length
+	 * 			The desired length of the board.
+	 */
 	public void setLength(int length) {
 		this.length = length;
 	}
 	
-	//Action Listener
+	/**
+	 * Exposes cells based on button pressed.
+	 * 
+	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+	 */
 	public void actionPerformed(ActionEvent event) {
 		for (int row = 0; row < length; row++) {
 			for (int col = 0; col < length; col++) {
@@ -136,19 +194,40 @@ public class MineSweeperPanel extends JPanel implements ActionListener, MouseLis
 		}
 	}
 	
+	/**
+	 * Returns a boolean value if a game load is successful.
+	 * 
+	 * @return boolean The success of the game loading.
+	 */
 	public boolean isSuccess() {
 		return game.isloadSuccessful();
 	}
 
+	/**
+	 * Saves the current MineSweeper game
+	 * 
+	 * @param filename
+	 * 			The name of what to save the game as.
+	 */
 	public void save(String filename) {
 		game.save(filename);
 	}
 	
+	/**
+	 * Returns the boardsize of a specific file
+	 * @param filename
+	 * 			The name of the file to get the boardsize from
+	 * @return int The length of the board from the file.
+	 */
 	public int boardSize(String filename) {
 		return game.getSize(filename);
 	}
 	
-	//Mouse listener
+	/**
+	 * A mouse listener to keep track of when a button is right clicked
+	 * so it will be toggled for isFlag. This also displays the board
+	 * after the flag has been toggled.
+	 */
 	public void mouseClicked(MouseEvent e) {
 	}
 
