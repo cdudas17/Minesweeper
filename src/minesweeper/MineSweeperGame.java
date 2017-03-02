@@ -181,8 +181,7 @@ public class MineSweeperGame {
 		for (int row = 0; row < this.row; row++) {
 			for (int col = 0; col < this.col; col++) {
 				if (board[row][col].isMine() && !board
-						[row][col].isExposed() && !board
-						[row][col].isFlagged()) {
+						[row][col].isExposed()) {
 					board[row][col].setExposed(true);
 				}
 			}
@@ -206,7 +205,8 @@ public class MineSweeperGame {
 
 				if (getCell(r, c) != null && !board[r][c].
 						isExposed() && !board[r][c].
-						isMine()) {
+						isMine() && !board[r][c].
+						isFlagged()) {
 					board[r][c].setExposed(true);
 					if (board[r][c].getMineCount() == 0) {
 						zeroCell(r, c);
