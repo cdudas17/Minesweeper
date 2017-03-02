@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
  * This class creates a fully functional Minesweeper board and makes all
  * decisions regarding the state of the game.
  * 
- * @author Matthew Shampine, Conor Dudas
+ * @author Matthew Shampine, Connor Dudas
  * @version 1.0
  */
 public class MineSweeperGame {
