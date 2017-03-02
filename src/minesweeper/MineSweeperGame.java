@@ -151,7 +151,9 @@ public class MineSweeperGame {
 	 *            The col of the cell location
 	 */
 	public void selectCell(final int row, final int col) {
-		board[row][col].setExposed(true);
+		if (!board[row][col].isFlagged()) {
+			board[row][col].setExposed(true);
+		}
 
 		if (checkStatus()) {
 			setGameStatus(GameStatus.Won);
@@ -179,9 +181,8 @@ public class MineSweeperGame {
 		for (int row = 0; row < this.row; row++) {
 			for (int col = 0; col < this.col; col++) {
 				if (board[row][col].isMine() && !board
-						[row][col].isExposed()) {
-					// TO-DO: needs to check if a flag is a 
-					// non-mine
+						[row][col].isExposed() && !board
+						[row][col].isFlagged()) {
 					board[row][col].setExposed(true);
 				}
 			}
