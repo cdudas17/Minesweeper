@@ -1,3 +1,5 @@
+package minesweeper;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -34,8 +36,11 @@ public class MineSweeperGame {
 	/** Whether or not the file was loaded successfully. */
 	private boolean loadSuccessful;
 
+	// CHECKSTYLE:OFF
+	// I disagreed with Checkstyles naming conventions for finals
 	/** Default board size for a beginner (8x8). */
 	private final int DEFAULT_SIZE = 8;
+	// CHECKSTYLE:ON
 
 	/**
 	 * Constructor that initializes a 2D array of cells, filling all of the
@@ -84,7 +89,7 @@ public class MineSweeperGame {
 	 *            The desired size of the board to be created
 	 * @throws NumberFormatException
 	 *             Throws an exception when the size provided is smaller 
-	 *             than a (3x3) board or exceeds a (24x24 size board).
+	 *             than a (3x3 size board) or exceeds a (24x24 size board).
 	 */
 	private void createBoardDimensions(final int size) {
 		try {
@@ -175,7 +180,7 @@ public class MineSweeperGame {
 			for (int col = 0; col < this.col; col++) {
 				if (board[row][col].isMine() && !board
 						[row][col].isExposed()) {
-					// TO-DO: needs to check if a flag is 
+					// TO-DO: needs to check if a flag is a 
 					// non-mine
 					board[row][col].setExposed(true);
 				}
@@ -248,7 +253,7 @@ public class MineSweeperGame {
 	}
 
 	/**
-	 * This helper method adds one to the mine count of the eight
+	 * This helper method adds one to the mine count to each of the eight
 	 * neighboring cells.
 	 * 
 	 * @param row
@@ -269,7 +274,7 @@ public class MineSweeperGame {
 
 	/**
 	 * This method saves off the current status of the game to a file. The
-	 * properties of the game that are stored is the size of the game board
+	 * properties of the game that are stored are the size of the game board
 	 * and the number of mines the game has. In addition to this, the game 
 	 * saves for each cell: the row of the board, the col of the board, the 
 	 * current mine count of that cell, whether of not the cell is a mine, 
@@ -340,7 +345,7 @@ public class MineSweeperGame {
 
 	/**
 	 * This method loads the saved game and recreates the board from the
-	 * properties in the file.
+	 * properties found in the file.
 	 * 
 	 * @param filename
 	 *            The name of the file that the properties are loaded from
@@ -378,6 +383,8 @@ public class MineSweeperGame {
 						? true : false;
 				boolean isExposed = (inputSplit[5].equals("t")) 
 						? true : false;
+				// once all properties are known the cell can 
+				// be created
 				setCell(row, col, mineCount, isMine, isFlagged, 
 						isExposed);
 			}
@@ -534,6 +541,7 @@ public class MineSweeperGame {
 		this.col = col;
 	}
 
+	// CHECKSTYLE:OFF
 	/**
 	 * Getter method that returns what the default size of the board is.
 	 * In this case a Minesweeper board on beginner has the size of an
@@ -544,6 +552,7 @@ public class MineSweeperGame {
 	public int getDEFAULT_SIZE() {
 		return DEFAULT_SIZE;
 	}
+	// CHECKSTYLE:0N
 
 	/**
 	 * Getter method that returns the current status of the game.
