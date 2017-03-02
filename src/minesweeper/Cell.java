@@ -8,7 +8,7 @@ package minesweeper;
  * 
  * 
  * @author Matthew Shampine, Connor Dudas
- *
+ * @version 1.0
  */
 public class Cell {
 
