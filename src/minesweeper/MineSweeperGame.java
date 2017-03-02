@@ -89,7 +89,7 @@ public class MineSweeperGame {
 	 *            The desired size of the board to be created
 	 * @throws NumberFormatException
 	 *             Throws an exception when the size provided is smaller 
-	 *             than a (3x3 size board) or exceeds a (24x24 size board).
+	 *             than a (3x3 size board) or exceeds a (24x24 size board)
 	 */
 	private void createBoardDimensions(final int size) {
 		try {
@@ -284,10 +284,7 @@ public class MineSweeperGame {
 	 * 
 	 * @param filename
 	 *            The name of the file that is saved and written to
-	 * @throws I0Exception
-	 *             Does not save the game if the name of the file is 0 in
-	 *             length
-	 * @throws InputMisMatchException
+	 * @throws InputMismatchException
 	 *             If the user tries to save a lost game
 	 */
 	public void save(final String filename) {
@@ -350,8 +347,6 @@ public class MineSweeperGame {
 	 * 
 	 * @param filename
 	 *            The name of the file that the properties are loaded from
-	 * @throws FileNotFoundException
-	 *             If the file could not be found and loaded
 	 * @throws InputMismatchException
 	 *             If the contents of the file has been altered and it
 	 *             cannot parse correctly
@@ -437,8 +432,6 @@ public class MineSweeperGame {
 	 * 
 	 * @param filename
 	 *            The name of the file that the properties are loaded from
-	 * @throws FileNotFoundException
-	 *             If the file could not be found and loaded
 	 * @throws NumberFormatException
 	 *             If the contents of the file has been altered and it
 	 *             cannot parse correctly
