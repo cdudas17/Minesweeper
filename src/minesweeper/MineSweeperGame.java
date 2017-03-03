@@ -60,7 +60,7 @@ public class MineSweeperGame {
 		setNumMines(numMines);
 		board = new Cell[row][col];
 		initialize();
-		setMines(numMines);
+		setMines(this.numMines);
 		mineCount();
 	}
 
@@ -289,7 +289,7 @@ public class MineSweeperGame {
 	 */
 	public void save(final String filename) {
 		try {
-			if (filename.length() == 0) {
+			if (filename.trim().length() == 0) {
 				throw new IOException();
 			}
 
@@ -359,7 +359,8 @@ public class MineSweeperGame {
 	 */
 	public void load(final String filename) {
 		try {
-			Scanner fileReader = new Scanner(new File(filename));
+			Scanner fileReader = new Scanner(new File(filename.
+					trim()));
 			String input = fileReader.nextLine();
 			String[] inputSplit = input.split("\\s+");
 
@@ -521,13 +522,10 @@ public class MineSweeperGame {
 	 * 
 	 * @return int The size of the col
 	 */
-	/* this method is not used but I would still like to have 
-	 * it incase I need to use it for future optimizations
 	public int getCol() {
 		return col;
 	}
-	*/
-
+	
 	/**
 	 * Setter method that sets the col of the board.
 	 * 
@@ -588,6 +586,18 @@ public class MineSweeperGame {
 	 *            The number of mines that the game will have
 	 */
 	public void setNumMines(final int numMines) {
-		this.numMines = numMines;
+		try {
+			if (getRow() == 8 && numMines != 10) {
+					throw new NumberFormatException();
+				} else if (getRow() == 16 && numMines != 40) {
+					throw new NumberFormatException();
+				} else if (getRow() == 24 && numMines != 99) {
+					throw new NumberFormatException();
+				} else {
+					this.numMines = numMines;
+				}
+			} catch (NumberFormatException e) {
+				this.numMines = 10;
+			}
 	}
 }
