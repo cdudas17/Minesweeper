@@ -521,9 +521,12 @@ public class MineSweeperGame {
 	 * 
 	 * @return int The size of the col
 	 */
+	/* this method is not used but I would still like to have 
+	 * it incase I need to use it for future optimizations
 	public int getCol() {
 		return col;
 	}
+	*/
 
 	/**
 	 * Setter method that sets the col of the board.
@@ -543,10 +546,12 @@ public class MineSweeperGame {
 	 * 
 	 * @return int The size of the board
 	 */
+	/*
 	public int getDEFAULT_SIZE() {
 		return DEFAULT_SIZE;
 	}
 	// CHECKSTYLE:0N
+	 */
 
 	/**
 	 * Getter method that returns the current status of the game.
