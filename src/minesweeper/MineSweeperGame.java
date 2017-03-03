@@ -435,7 +435,7 @@ public class MineSweeperGame {
 	 * @throws NumberFormatException
 	 *             If the contents of the file has been altered and it
 	 *             cannot parse correctly
-	 * @return int The size of the boar
+	 * @return int The size of the board
 	 */
 	public int getSize(final String filename) {
 		int size = 0;
