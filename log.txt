@@ -1,0 +1,389 @@
+commit 43a78cb3247235423e84f0aa9a6e496dfe8a8825
+Merge: 96e5232 5d7665f
+Author: cdudas17 <cdudas17@gmail.com>
+Date:   Thu Mar 2 18:43:59 2017 -0500
+
+    Merge branch 'master' of https://github.com/cdudas17/Minesweeper
+
+commit 96e5232b03b01f47776e0672800a455606877c34
+Author: cdudas17 <cdudas17@gmail.com>
+Date:   Thu Mar 2 18:42:59 2017 -0500
+
+    Added javadoc comments to MineSweeperPanel and Minsweeper
+
+commit 5d7665f81192da34f7d852c73b60caf2e3218ebd
+Author: Matthew Shampine <shampinm@mail.gvsu.edu>
+Date:   Thu Mar 2 17:00:39 2017 -0500
+
+    Applied some checkstyle changes.
+
+commit 435d6c292c96a9dea62ae684a7def2058e1573cc
+Author: Matthew Shampine <shampinm@mail.gvsu.edu>
+Date:   Thu Mar 2 16:56:50 2017 -0500
+
+    Fixed Javadoc issues and flag issue.
+
+commit ffe0b5ecd88ad42947bf0f70a1790cf46c5f4505
+Author: Matthew Shampine <shampinm@mail.gvsu.edu>
+Date:   Thu Mar 2 16:16:34 2017 -0500
+
+    Fixed a zero cell disabling a neighboring flagged cell.
+
+commit 6672d507362ffecdbafe4d94108be3b14147c6da
+Author: Matthew Shampine <shampinm@mail.gvsu.edu>
+Date:   Thu Mar 2 12:31:35 2017 -0500
+
+    Fixed a typo
+
+commit 242500efa34e7811d119ab787cf41aa0b05b8b69
+Merge: 3487c67 0623179
+Author: Matthew Shampine <shampinm@mail.gvsu.edu>
+Date:   Thu Mar 2 12:19:59 2017 -0500
+
+    Merge branch 'master' of https://github.com/cdudas17/Minesweeper.git
+    
+    Conflicts:
+            src/minesweeper/MineSweeperGame.java
+
+commit 3487c67becf5912cbb552db111ba96e847889305
+Author: Matthew Shampine <shampinm@mail.gvsu.edu>
+Date:   Thu Mar 2 12:16:55 2017 -0500
+
+    Fixed being able to click on a flag and disabling it.
+
+commit 062317929925a367784da06f4b7068722e4a68f5
+Author: cdudas17 <cdudas17@gmail.com>
+Date:   Thu Mar 2 12:05:53 2017 -0500
+
+    Inlcuding minesweeper package in my project
+
+commit d31e67e7cc9a1004e965a939ad87939572098942
+Author: Matthew Shampine <shampinm@mail.gvsu.edu>
+Date:   Thu Mar 2 11:43:49 2017 -0500
+
+    Only needs to have Javadoc on Minesweeper and MineSweeperPanel.
+
+commit b1fe9cec5b2eb59910c5ff26b8fb2dcde12f0f6c
+Author: Matthew Shampine <shampinm@mail.gvsu.edu>
+Date:   Thu Mar 2 11:10:43 2017 -0500
+
+    Finished Javadoc and Checkstyle on MineSweeperGame, Cell, and GameStatus
+
+commit 9766858cf5b518fee1f4f1e928b38375a1f2c82f
+Author: Matthew Shampine <shampinm@mail.gvsu.edu>
+Date:   Thu Mar 2 10:38:34 2017 -0500
+
+    Working on javadoc on Cell class
+
+commit 10e5176a8122562b290cb49a1488b39e99b94c73
+Author: Matthew Shampine <shampinm@mail.gvsu.edu>
+Date:   Thu Mar 2 10:35:59 2017 -0500
+
+    MineSweeperGame is completely done. Javadoc and Checkstyle completed.
+
+commit 48729000271cd1347aea919677f34b92cfb3c849
+Author: Matthew Shampine <shampinm@mail.gvsu.edu>
+Date:   Thu Mar 2 08:20:43 2017 -0500
+
+    This class is almost completely done, has javadoc, it just needs a
+    package-info.java file and maybe some inline comments.
+
+commit 02119fd158789bdb375f2124083f756dcd46337f
+Author: Matthew Shampine <shampinm@mail.gvsu.edu>
+Date:   Wed Mar 1 06:00:05 2017 -0500
+
+    Added a save/load feature. Just need to do javadoc and checkstyle.
+
+commit 155dc9a0c3ea40c92bbb00c3f223dbb7aa34bdeb
+Author: shampinm <shampinm@eos07.cis.gvsu.edu>
+Date:   Tue Feb 28 17:35:14 2017 -0500
+
+    Worked on javadoc, need to clean code up a bit still
+
+commit 71c3c16c5ea916fcf387aa2d8899b380ee44584c
+Author: shampinm <shampinm@eos07.cis.gvsu.edu>
+Date:   Tue Feb 28 17:28:30 2017 -0500
+
+    Added some javadoc, still need to clean up code a bit.
+
+commit 1d958de6ad0e4c1bd23550d2ac6a06bc3a74c8ef
+Author: shampinm <shampinm@eos07.cis.gvsu.edu>
+Date:   Tue Feb 28 17:27:15 2017 -0500
+
+    Added some javadoc, still need to clean up code a bit
+
+commit 177d79fe99ba6c184f5371fd1f7534afac357d5c
+Author: shampinm <shampinm@eos07.cis.gvsu.edu>
+Date:   Tue Feb 28 17:27:15 2017 -0500
+
+    Added some javadoc, still need to clean up code a bit
+
+commit 2741c0149f2506e20aef4fdceec7b6520b23a3da
+Author: cdudas17 <cdudas17@gmail.com>
+Date:   Tue Feb 28 16:39:19 2017 -0500
+
+    fixed panel lost error
+
+commit ad2988c3fd2c9856416e23959a3c030f01f9e88a
+Author: cdudas17 <cdudas17@gmail.com>
+Date:   Tue Feb 28 16:35:26 2017 -0500
+
+    Minesweeper Panel functionality
+
+commit 428b6bc965c0b4947cd8d4d99d38a8a5b5f1ef38
+Author: shampinm <shampinm@eos07.cis.gvsu.edu>
+Date:   Tue Feb 28 16:34:28 2017 -0500
+
+    Tested
+
+commit d6f0e8d98759012607963a26e4c24bc8cd8e1074
+Author: shampinm <shampinm@eos07.cis.gvsu.edu>
+Date:   Tue Feb 28 16:13:28 2017 -0500
+
+    Improved mineCount
+
+commit bd6daeaf35280195ed773c61c6fdf95afc62079e
+Author: shampinm <shampinm@eos07.cis.gvsu.edu>
+Date:   Tue Feb 28 16:04:23 2017 -0500
+
+    corrected minecount
+
+commit a75d7b407e0f283d87ca4fddf12b8586818f9f0f
+Author: Matthew Shampine <shampinm@mail.gvsu.edu>
+Date:   Tue Feb 28 14:13:34 2017 -0500
+
+    Completed additional methods
+
+commit d143a8e0bbf778e3deaa3a136320d846fc429164
+Author: Matthew Shampine <shampinm@mail.gvsu.edu>
+Date:   Tue Feb 28 14:11:56 2017 -0500
+
+    Just need to work on zeroCell() and maybe add save/load feature
+
+commit d80dd9169b40e8a8b80535b673f3c3eaf5733bcc
+Merge: 2c93557 879f506
+Author: Matthew Shampine <shampinm@mail.gvsu.edu>
+Date:   Tue Feb 28 11:34:38 2017 -0500
+
+    Merge branch 'master' of https://github.com/cdudas17/Minesweeper
+
+commit 2c935574cac2a0e6b88932b22cf4c64ce0ba720d
+Author: Matthew Shampine <shampinm@mail.gvsu.edu>
+Date:   Tue Feb 28 11:30:13 2017 -0500
+
+    Added a save/load feature. Just need to finish the zeroCell() method.
+
+commit 879f506508b32c9efef6e39cf073aa61d7967bae
+Author: cdudas17 <cdudas17@gmail.com>
+Date:   Tue Feb 28 01:54:39 2017 -0500
+
+    attempt at mouse listener
+
+commit 84947d079722ea577aaa0291abbf1387423eb2de
+Author: cdudas17 <cdudas17@gmail.com>
+Date:   Tue Feb 28 01:38:10 2017 -0500
+
+    Playable with win/loss
+
+commit 1eb6a674460465556958c78fa7e36e3dce411029
+Author: cdudas17 <cdudas17@gmail.com>
+Date:   Tue Feb 28 01:31:05 2017 -0500
+
+    Exposes mines in game PLAYABLE
+
+commit 3b43d48c38b6c508cbd73b6d2783f812380909f3
+Merge: 4dbcd0a 4ae508b
+Author: cdudas17 <cdudas17@gmail.com>
+Date:   Tue Feb 28 01:25:26 2017 -0500
+
+    Merge branch 'master' of https://github.com/cdudas17/Minesweeper
+
+commit 4dbcd0abe12d79ac321d64b31826f82a16e529df
+Author: cdudas17 <cdudas17@gmail.com>
+Date:   Tue Feb 28 01:23:03 2017 -0500
+
+    added mine/flag pngs and streamlined display board
+
+commit 4ae508b5c79923948ae86ed15fb798d0f701d24c
+Author: Matthew Shampine <shampinm@mail.gvsu.edu>
+Date:   Tue Feb 28 01:19:37 2017 -0500
+
+    Fixed merge issue
+
+commit 52917a37991d8285f4982bf90f612e5da4585903
+Author: cdudas17 <cdudas17@gmail.com>
+Date:   Tue Feb 28 01:10:47 2017 -0500
+
+    updated to create new MineSweeperPanel on board change
+
+commit 3dd0b0fbd9680c433dea74b92e9694afdf506317
+Author: cdudas17 <cdudas17@gmail.com>
+Date:   Tue Feb 28 01:05:16 2017 -0500
+
+    added display and create buttons methods
+
+commit 4b3bfc6d61051b29334f6761cc1b093434ed28f0
+Merge: 06931db c009583
+Author: Matthew Shampine <shampinm@mail.gvsu.edu>
+Date:   Tue Feb 28 00:42:22 2017 -0500
+
+    Merge branch 'master' of https://github.com/cdudas17/Minesweeper.git
+    
+    Conflicts:
+            src/MineSweeperGame.java
+            src/MineSweeperPanel.java
+            src/Minesweeper.java
+
+commit 06931db55013d6c9bdf22fd9f3718279e35b3bc5
+Merge: 6468c3f d9eac10
+Author: Matthew Shampine <shampinm@mail.gvsu.edu>
+Date:   Mon Feb 27 17:58:37 2017 -0500
+
+    Merge branch 'master' of https://github.com/cdudas17/Minesweeper.git
+    
+    Conflicts:
+            src/MineSweeperPanel.java
+
+commit c009583c92cedacab1140c96579fd0f6ff94e345
+Author: shampinm <shampinm@eos07.cis.gvsu.edu>
+Date:   Mon Feb 27 16:04:15 2017 -0500
+
+    Fixed select class
+
+commit f2853ce3dabec71f202088068ad953322252bf06
+Merge: 289ff3c 52b4e49
+Author: shampinm <shampinm@eos07.cis.gvsu.edu>
+Date:   Mon Feb 27 16:03:33 2017 -0500
+
+    Merge branch 'master' of https://github.com/cdudas17/Minesweeper.git
+
+commit 289ff3cb75075e711d9bf2eec4b9c9cab4b4791a
+Author: shampinm <shampinm@eos07.cis.gvsu.edu>
+Date:   Mon Feb 27 16:02:21 2017 -0500
+
+    Added more
+
+commit b589ab83628b2ced9a02be9c117ed791837cd70e
+Author: shampinm <shampinm@eos07.cis.gvsu.edu>
+Date:   Mon Feb 27 16:01:14 2017 -0500
+
+    Worked on Select method
+
+commit 52b4e497b0e520eea2e25d16031ec371d1218dee
+Author: cdudas17 <cdudas17@gmail.com>
+Date:   Mon Feb 27 15:53:19 2017 -0500
+
+    centers board on resizing
+
+commit 06e139101d0a8936b53556cdae574aa6cef1e822
+Author: cdudas17 <cdudas17@gmail.com>
+Date:   Mon Feb 27 15:50:52 2017 -0500
+
+    allow resizing of panel with new games
+
+commit daf5e5c0df6acf3b43c823ad192f3f8172e9e640
+Author: shampinm <shampinm@eos07.cis.gvsu.edu>
+Date:   Mon Feb 27 15:30:38 2017 -0500
+
+    Working on selectCell method.
+
+commit d293519684f7c89a7e21ce66c3dad145767ceb04
+Author: shampinm <shampinm@eos07.cis.gvsu.edu>
+Date:   Mon Feb 27 15:18:25 2017 -0500
+
+    Added getCell function
+
+commit 34e8946bd46ed2f66212b7ed127d862a8d23ad4d
+Author: shampinm <shampinm@eos07.cis.gvsu.edu>
+Date:   Mon Feb 27 15:04:14 2017 -0500
+
+    Added mine function
+
+commit 8998c43be9f537ff0f33c0d355bcb010da12067f
+Author: shampinm <shampinm@eos07.cis.gvsu.edu>
+Date:   Mon Feb 27 14:54:33 2017 -0500
+
+    Added the setMines() class that adds mines to the board.
+
+commit f3162b321982bf69fa98d009501751c2853bf604
+Author: shampinm <shampinm@eos07.cis.gvsu.edu>
+Date:   Mon Feb 27 14:54:01 2017 -0500
+
+    Added the function setMines() to set the board randomly filled with
+    mines
+
+commit f87b6ad5b9aa3c1a55810bd9a2fb31b18565395e
+Author: shampinm <shampinm@eos07.cis.gvsu.edu>
+Date:   Mon Feb 27 14:29:28 2017 -0500
+
+    Changed a few things
+
+commit 3abf7f8bf71f3fa0542bb73a096540cf0718bfb5
+Author: shampinm <shampinm@eos07.cis.gvsu.edu>
+Date:   Mon Feb 27 14:23:56 2017 -0500
+
+    Added additional features
+
+commit a5aa798878c96f8421c71c90dd6af6d0d186f2f8
+Author: shampinm <shampinm@eos07.cis.gvsu.edu>
+Date:   Mon Feb 27 14:19:12 2017 -0500
+
+    Added additional features
+
+commit 330e0e54b9155f19b18bdf55f8b031e701d5d427
+Author: shampinm <shampinm@eos07.cis.gvsu.edu>
+Date:   Mon Feb 27 14:03:17 2017 -0500
+
+    Added difficulty levels for game class. Beginner, intermediate, and
+    expert.
+
+commit 6468c3f0f47638c8a9fb2b409b068be20f8e3e6a
+Author: Matthew Shampine <shampinm@mail.gvsu.edu>
+Date:   Mon Feb 27 12:39:44 2017 -0500
+
+    Changed MineSweeper to have 3 different difficulties: beginner,
+    intermediate, and expert.
+
+commit d9eac109388c7a3a3ab95a04a43c5c2f5362bb11
+Author: cdudas17 <cdudas17@gmail.com>
+Date:   Mon Feb 27 12:27:04 2017 -0500
+
+    notes on functionality and class interactions
+
+commit faf790735c7b85cb40eeb6fc91292c9ba24d94a1
+Author: shampinm <shampinm@eos07.cis.gvsu.edu>
+Date:   Sun Feb 26 21:29:23 2017 -0500
+
+    # WARNING: head commit changed in the meantime
+    
+    Adding functionality to the MineSweeperGame
+
+commit b667122b7a8f1cf6fdb4c942f8b1e0a38d21d46c
+Author: Matthew Shampine <shampinm@eos07.cis.gvsu.edu>
+Date:   Sun Feb 26 19:47:06 2017 -0500
+
+    Adding functionality to the MineSweeperGame
+
+commit b226d582d28d7906a7bc863f1412b5d0626cc463
+Author: cdudas17 <cdudas17@gmail.com>
+Date:   Sun Feb 26 19:35:22 2017 -0500
+
+    created button layout with action listeners
+
+commit 3b0f4fda9ce550ed5ad293b5716639bd67f1fbb5
+Author: shampinm <shampinm@eos07.cis.gvsu.edu>
+Date:   Sun Feb 26 19:23:33 2017 -0500
+
+    Modified the Cell Class to contain the properties of a MineSweeper cell
+
+commit e3a1fa8024fe31348da325c84bee713b762cdc5e
+Author: cdudas17 <cdudas17@gmail.com>
+Date:   Sun Feb 26 18:56:57 2017 -0500
+
+    added other class files
+
+commit 70145adfc5d6d8ba117b0bbe37e2bcb419ebd0c7
+Author: cdudas17 <cdudas17@gmail.com>
+Date:   Sun Feb 26 18:50:31 2017 -0500
+
+    Minesweeper for CIS 350
