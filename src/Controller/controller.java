@@ -5,6 +5,7 @@ import javax.swing.JPanel;
 
 import minesweeper.*;
 import tictactoe.*;
+import connectfour.*;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -29,7 +30,7 @@ public class controller{
 	private static JButton connectFourButton;
 	
 	public static void main(String[] args) {
-		frame = new JFrame("contorller");
+		frame = new JFrame("controller");
 		
 		/**
 		 * This class is used for the different menu options.
@@ -50,6 +51,10 @@ public class controller{
 				
 				if (e.getSource() == ticTacToeButton) {
 					tictactoe.main("");
+				}
+				
+				if (e.getSource() == connectFourButton) {
+					ConnectFour.main("");
 				}
 			}
 		}
