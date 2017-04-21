@@ -31,7 +31,7 @@ public class tictactoe {
 		board = new TicTacToePanel();
 		frame = new JFrame("Tic-Tac-Toe");
 		frame.add(board);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.pack();
 		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);

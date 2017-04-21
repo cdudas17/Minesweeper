@@ -59,7 +59,7 @@ public class Cell {
 	/**
 	 * Setter method that sets what player owns a cell.
 	 * 
-	 * @param markedBy
+	 * @param player
 	 *            Who is going to mark the cell.
 	 */
 	public void setPlayer(final Player player) {

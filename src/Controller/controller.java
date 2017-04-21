@@ -61,7 +61,7 @@ public class controller{
 	mineSweeperButton.addActionListener(new ButtonListener());
 	ticTacToeButton = new JButton("Tic-Tac-Toe");
 	ticTacToeButton.addActionListener(new ButtonListener());
-	connectFourButton = new JButton("ConnectFour");
+	connectFourButton = new JButton("Connect Four");
 	connectFourButton.addActionListener(new ButtonListener());
 	
 	panel.add(mineSweeperButton, BorderLayout.WEST);

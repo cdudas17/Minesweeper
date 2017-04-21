@@ -68,7 +68,7 @@ public class Minesweeper {
 		board = new MineSweeperPanel(DEFAULT_SIZE, DEFAULT_MINE);
 		frame = new JFrame("Mine Sweeper");
 		frame.add(board);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.pack();
 		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
