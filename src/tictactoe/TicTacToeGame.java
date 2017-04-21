@@ -127,12 +127,12 @@ public class TicTacToeGame {
 	 * 
 	 * @param pRow
 	 *            The row of the cell location the player selected
-	 * @param col
+	 * @param pCol
 	 *            The col of the cell location the player selected
 	 *            
 	 * @return Player The current status of the game.
 	 */
-	private GameStatus checkStatus(int pRow, int pCol) {	//FIXME
+	private GameStatus checkStatus(final int pRow,final int pCol) {
 		GameStatus status = GameStatus.NotOverYet;
 		int cellsMarked = 0;
 		for (int row = 0; row < SIZE; row++) {
