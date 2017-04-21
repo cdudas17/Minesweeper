@@ -27,7 +27,7 @@ public class tictactoe {
 	/** For a MineSweeperPanel that holds the buttons for the game. */
 	private static TicTacToePanel board;
 	
-	public static void main(final String[] args) {
+	public static void main(final String string) {
 		board = new TicTacToePanel();
 		frame = new JFrame("Tic-Tac-Toe");
 		frame.add(board);

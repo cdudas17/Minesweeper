@@ -61,10 +61,10 @@ public class Minesweeper {
 	/**
 	 * Main method that runs the Minesweeper game.
 	 * 
-	 * @param args
+	 * @param string
 	 *            Default arguments used for debugging
 	 */
-	public static void main(final String[] args) {
+	public static void main(final String string) {
 		board = new MineSweeperPanel(DEFAULT_SIZE, DEFAULT_MINE);
 		frame = new JFrame("Mine Sweeper");
 		frame.add(board);
