@@ -54,7 +54,7 @@ public class controller{
 				}
 				
 				if (e.getSource() == connectFourButton) {
-//					connectfour.main("");
+					ConnectFour.main("");
 				}
 			}
 		}
